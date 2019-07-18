@@ -13,6 +13,9 @@ public class Ball {
     private final String valueDeserializer;
     private final String subscribedTopics;
     private final String  topicWildcardPattern;
+    private final String  subscription;
+    private final String  translator;
+    private final String pollTimeoutMs;
     private String finalString;
 
     public Ball(long offsetCommitPeriodMs, int maxRetries, int maxUncommittedOffsets, String firstPollOffsetStrategy, String kafkaSpoutStreams, String tuplesBuilder, String retryService, String kafkaProps, String keyDeserializer, String valueDeserializer, String subscribedTopics, String topicWildcardPattern) {
@@ -28,6 +31,9 @@ public class Ball {
         this.valueDeserializer = valueDeserializer;
         this.subscribedTopics = subscribedTopics;
         this.topicWildcardPattern = topicWildcardPattern;
+        this.subscription = "";
+        this.translator = "";
+        this.pollTimeoutMs = "";
         this.finalString = finalString();
     }
 
@@ -35,8 +41,17 @@ public class Ball {
         return finalString;
     }
 
+    public String getKeyDeserializer() {
+        return keyDeserializer;
+    }
+
+    public String getValueDeserializer() {
+        return valueDeserializer;
+    }
+
     public String getSubscribedTopics() {
         return subscribedTopics;
+
     }
 
     public String getTopicWildcardPattern() {
@@ -46,18 +61,16 @@ public class Ball {
     public String finalString() {
         String returnString = "KafkaSpoutConfig{" +
                 "kafkaProps=" + kafkaProps +
-                ", keyDeserializer=" + keyDeserializer +
-                ", valueDeserializer=" + valueDeserializer +
-                ", pollTimeoutMs=" + valueDeserializer +
+                ", key=" + getKeyDeserializer() +
+                ", value=" + getValueDeserializer() +
+                ", pollTimeoutMs=" + pollTimeoutMs +
                 ", offsetCommitPeriodMs=" + offsetCommitPeriodMs +
                 ", maxRetries=" + maxRetries +
                 ", maxUncommittedOffsets=" + maxUncommittedOffsets +
                 ", firstPollOffsetStrategy=" + firstPollOffsetStrategy +
-                ", kafkaSpoutStreams=" + kafkaSpoutStreams +
-                ", tuplesBuilder=" + tuplesBuilder +
+                ", subscription=" + subscription +
+                ", translator=" + translator +
                 ", retryService=" + retryService +
-                ", topics=" + getSubscribedTopics() +
-                ", topicWildcardPattern=" + getTopicWildcardPattern() +
                 '}';
         return returnString;
     }
