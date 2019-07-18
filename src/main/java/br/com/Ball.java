@@ -50,7 +50,6 @@ public class Ball {
                 ", valueDeserializer=" + valueDeserializer +
                 ", pollTimeoutMs=" + valueDeserializer +
                 ", offsetCommitPeriodMs=" + offsetCommitPeriodMs +
-                ", maxRetries=" + maxRetries +
                 ", maxUncommittedOffsets=" + maxUncommittedOffsets +
                 ", firstPollOffsetStrategy=" + firstPollOffsetStrategy +
                 ", kafkaSpoutStreams=" + kafkaSpoutStreams +

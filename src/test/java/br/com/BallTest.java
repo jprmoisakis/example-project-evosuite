@@ -12,6 +12,6 @@ public class BallTest {
         Ball ball = new Ball(1,1,1, "testeEvo","testeEvo","testeEvo","testeEvo","testeEvo","testeEvo","testeEvo","testeEvo","testeEvo");
         System.out.println(ball.getFinalString().getClass().getSimpleName());
         int countMaxRetries = StringUtils.countMatches(ball.getFinalString(), "maxRetries=");
-        assertEquals(1, countMaxRetries);
+        assertEquals(0, countMaxRetries);
     }
 }
